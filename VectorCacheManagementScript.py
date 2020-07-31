@@ -156,7 +156,7 @@ def updateTiles(orgID, layerName, extent, lods,token):
    #Build each tile of the tiled service.
    url = "https://tiles.arcgis.com/tiles/{}/arcgis/rest/admin/services/{}/VectorTileServer/updateTiles".format(orgID, layerName)
    data = {"extent": extent,"levels": lods,"token":token, 'f':'json'}
-   jres = requests.post(url, data).json()
+   jres = requests.post(url, data, verify=False).json()
     #returns jobID
    return jres
 # End Update Tiles Function
